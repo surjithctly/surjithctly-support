@@ -5,27 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Get Support from Surjith</title> 
-<link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
-</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    </head>
 <body>
 
 <h1>Submit this form to send an email</h1>
 
-<form action="https://send.pageclip.co/UdLy8vNG1i9AoAddKfbQYweCczya2r09" class="pageclip-form" method="post">
-  <!-- Replace these inputs with your own. Make sure they have a "name" attribute! -->
-  <input type="text" name="name" placeholder="Roscoe Jones" />
-  <input type="email" name="email" placeholder="roscoe@example.com" />
-  <!-- This will be used in the email's subject. Must have name="subject" -->
-  <input type="text" name="subject" placeholder="Subject"/>
-  <!-- This button will have a loading spinner. Keep the inner span for best results. -->
-    <textarea name="body" placeholder="Describe your Issue">Email body</textarea>
-  <button type="submit" class="pageclip-form__submit">
-    <span>Send</span>
-  </button>
-</form>
+   <div class="col-md-6 offset-md-3 mt-5">
 
-<script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+<form id="contactform" action="https://getform.io/f/e9136cc6-e97e-4186-b40d-856acecbc65e" 
+method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="">Full Name</label>
+      <input type="text" name="name" class="form-control">
+    </div>
+    
+     <div class="form-group">
+          <label for="">Email address</label>
+  <input type="email" name="email">
+          </div>
+    
+      <div class="form-group">
+          <label for="">Subject</label>
+  <input type="text" name="subject">
+            </div>
+          
+            <div class="form-group">
+      <label for="">Describe your issue</label>
+    <textarea></textarea>
+            </div>
+    
+    
+          <div class="form-group">
+         <label class="mr-2">Upload Screenshots:</label>
+   <input type="file" name="file">
+                </div>
+        
+   <button type="submit">Send</button>
+</form>
+                        
+    </div>
 
 </body>
+    
+    
+    
+    <script
+  src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
+  integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs="
+  crossorigin="anonymous"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    
+    <script>
+        
+        $("#contactform").submit(function(e){
+  e.preventDefault();
+  var action = $(this).attr("action");
+  $.ajax({
+    type: "POST",
+    url: action,
+    crossDomain: true,
+    data: new FormData(this),
+    dataType: "json",
+    contentType: "multipart/form-data",
+    processData: false,
+    contentType: false,
+    headers: {
+      "Accept": "application/json"
+    }
+  }).done(function() {
+     $('.success').addClass('is-active');
+  }).fail(function() {
+     alert('An error occurred please try again later.')
+  });
+});
+        
+    </script>
+    
+    
 
 </html>

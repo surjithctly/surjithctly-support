@@ -45,7 +45,7 @@ method="POST" enctype="multipart/form-data">
     <button type="submit" class="btn btn-primary">Send Message</button>
 </form>
        
-   <div class="alert alert-success d-none" role="alert">
+   <div class="alert alert-success mt-3 d-none" role="alert">
   A simple success alert—check it out!
 </div>
                         
@@ -82,6 +82,7 @@ method="POST" enctype="multipart/form-data">
     }
   }).done(function() {
      $('.alert-success').removeClass('d-none');
+      $("#contactform")[0].reset();
   }).fail(function() {
      alert('An error occurred please try again later.')
   });
